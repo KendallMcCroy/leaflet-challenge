@@ -34,7 +34,23 @@ function createMap(earthquakes) {
 
 
 function createMarkers(response) {
-    console.log(response)
+ 
+    var quakeData = response.features;
+    var quakemakers = [];
+    
+    for (var index = 0; index < quakeData.length; index++){
+        var qData = quakeData[index];
+        var coor = qData.geometry.coordinates
+        var props = qData.properties
+
+    
+        // console.log(coor[0])
+        var quakemaker = L.marker([coor[0], coor[1]]).bindPopup("<h3>" + props.title + "<h3><h3>Maginatude: " + props.mag + "</h3>");
+        quakemakers.push(quakemaker); 
+    
+    }
+ 
+    createMap(L.layerGroup(quakemakers));
 }
 
 d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson").then(createMarkers);
