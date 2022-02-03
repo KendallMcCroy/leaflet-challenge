@@ -20,7 +20,7 @@ function createMap(earthquakes) {
     // Create the map object with options
     var map = L.map("map-id", {
         center: [40.73, -74.0059],
-        zoom: 12,
+        zoom: 3,
         layers: [quakes, earthquakes]
 
     });
@@ -45,7 +45,7 @@ function createMarkers(response) {
 
     
         // console.log(coor[0])
-        var quakemaker = L.marker([coor[0], coor[1]]).bindPopup("<h3>" + props.title + "<h3><h3>Maginatude: " + props.mag + "</h3>");
+        var quakemaker = L.marker([coor[1], coor[0]]).bindPopup("<h3>" + props.title + "<h3><h3>Maginatude: " + props.mag + "</h3>");
         quakemakers.push(quakemaker); 
     
     }
