@@ -20,7 +20,7 @@ function createMap(earthquakes) {
     // Create the map object with options
     var map = L.map("map-id", {
         center: [40.73, -74.0059],
-        zoom: 3,
+        zoom: 4,
         layers: [quakes, earthquakes]
 
     });
