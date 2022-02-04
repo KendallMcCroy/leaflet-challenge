@@ -34,6 +34,8 @@ function createMap(earthquakes) {
 
 
 function createMarkers(response) {
+
+    console.log(response)
  
     var quakeData = response.features;
     var quakemakers = [];
@@ -45,7 +47,7 @@ function createMarkers(response) {
 
     
         // console.log(coor[0])
-        var quakemaker = L.marker([coor[1], coor[0]]).bindPopup("<h3>" + props.title + "<h3><h3>Maginatude: " + props.mag + "</h3>");
+        var quakemaker = L.circle([coor[1], coor[0],]).bindPopup("<h3>" + props.title + "<h3><h3>Maginatude: " + props.mag + "</h3>");
         quakemakers.push(quakemaker); 
     
     }
