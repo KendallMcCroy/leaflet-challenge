@@ -19,7 +19,7 @@ function createMap(earthquakes) {
     };
     // Create the map object with options
     var map = L.map("map-id", {
-        center: [40.73, -74.0059],
+        center: [40.73, -94.0059],
         zoom: 4,
         layers: [quakes, earthquakes]
 
@@ -36,22 +36,25 @@ function createMap(earthquakes) {
 function createMarkers(response) {
 
     console.log(response)
- 
+
     var quakeData = response.features;
     var quakemakers = [];
-    
-    for (var index = 0; index < quakeData.length; index++){
+
+    for (var index = 0; index < quakeData.length; index++) {
         var qData = quakeData[index];
         var coor = qData.geometry.coordinates
         var props = qData.properties
 
-    
+
         // console.log(coor[0])
         var quakemaker = L.circle([coor[1], coor[0],]).bindPopup("<h3>" + props.title + "<h3><h3>Maginatude: " + props.mag + "</h3>");
-        quakemakers.push(quakemaker); 
-    
+            quakemakers.push(quakemaker);
+        
+            
+
+
     }
- 
+
     createMap(L.layerGroup(quakemakers));
 }
 
